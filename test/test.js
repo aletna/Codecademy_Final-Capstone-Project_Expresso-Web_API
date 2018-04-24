@@ -299,7 +299,7 @@ describe('MenuItem Table', function() {
     });
   });
 });
-*/
+
 
 describe('GET /api/employees', function() {
   before(function(done) {
@@ -325,8 +325,7 @@ describe('GET /api/employees', function() {
   });
 });
 
-/*
-describe('GET /api/employees/:id', function() {
+describe('GET /api/employees/:employeeId', function() {
   before(function(done) {
     seed.seedEmployeeDatabase(done);
   });
@@ -356,7 +355,7 @@ describe('GET /api/employees/:id', function() {
         .expect(404);
   });
 });
-*/
+
 describe('POST /api/employees', function() {
   let newEmployee;
 
@@ -427,8 +426,8 @@ describe('POST /api/employees', function() {
         .expect(400);
   });
 });
-/*
-describe('PUT /api/employees/:id', function() {
+
+describe('PUT /api/employees/:employeeId', function() {
   let updatedEmployee;
 
   beforeEach(function(done) {
@@ -493,8 +492,11 @@ describe('PUT /api/employees/:id', function() {
         .expect(400);
   });
 });
+*/
 
-describe('DELETE /api/employees/:id', function() {
+/*
+// ---- PROBLEMO ---- //
+describe('DELETE /api/employees/:employeeId', function() {
   beforeEach(function(done) {
     seed.seedEmployeeDatabase(done);
   });
@@ -530,7 +532,9 @@ describe('DELETE /api/employees/:id', function() {
         });
   });
 });
+*/
 
+/*
 describe('GET /api/employees/:employeeId/timesheets', function() {
   before(function(done) {
     seed.seedTimesheetDatabase(done);
@@ -640,7 +644,10 @@ describe('POST /api/employees/:employeeId/timesheets', function() {
         .expect(404);
   });
 });
+*/
 
+// ---- PROBLEMO ---- //
+/*
 describe('PUT /api/employees/:employeeId/timesheets/:timesheetId', function() {
   let updatedTimesheet;
 
@@ -765,6 +772,7 @@ describe('DELETE /api/employees/:employeeId/timesheets/:timesheetId', function()
         .expect(404);
   });
 });
+*/
 
 
 describe('GET /api/menus', function() {
@@ -790,7 +798,7 @@ describe('GET /api/menus', function() {
         .expect(200);
   });
 });
-
+/*
 describe('GET /api/menus/:id', function() {
   before(function(done) {
     seed.seedMenuDatabase(done);
