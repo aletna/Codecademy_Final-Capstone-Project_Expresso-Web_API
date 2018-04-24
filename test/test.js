@@ -324,6 +324,7 @@ describe('GET /api/employees', function() {
         .expect(200);
   });
 });
+
 /*
 describe('GET /api/employees/:id', function() {
   before(function(done) {
@@ -355,7 +356,7 @@ describe('GET /api/employees/:id', function() {
         .expect(404);
   });
 });
-
+*/
 describe('POST /api/employees', function() {
   let newEmployee;
 
@@ -426,8 +427,7 @@ describe('POST /api/employees', function() {
         .expect(400);
   });
 });
-
-
+/*
 describe('PUT /api/employees/:id', function() {
   let updatedEmployee;
 
@@ -765,6 +765,7 @@ describe('DELETE /api/employees/:employeeId/timesheets/:timesheetId', function()
         .expect(404);
   });
 });
+
 
 describe('GET /api/menus', function() {
   before(function(done) {
