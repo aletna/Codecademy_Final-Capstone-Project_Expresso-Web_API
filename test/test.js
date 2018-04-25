@@ -11,7 +11,7 @@ const seed = require('./seed.js');
 const prodDb = new sqlite3.Database('./database.sqlite');
 const testDb = new sqlite3.Database(process.env.TEST_DATABASE);
 
-/*
+
 describe('Employee Table', function() {
   it('should exist', function(done) {
     prodDb.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Employee'", (error, table) => {
@@ -492,9 +492,9 @@ describe('PUT /api/employees/:employeeId', function() {
         .expect(400);
   });
 });
-*/
 
-/*
+
+
 // ---- PROBLEMO ---- //
 describe('DELETE /api/employees/:employeeId', function() {
   beforeEach(function(done) {
@@ -532,9 +532,9 @@ describe('DELETE /api/employees/:employeeId', function() {
         });
   });
 });
-*/
 
-/*
+
+
 describe('GET /api/employees/:employeeId/timesheets', function() {
   before(function(done) {
     seed.seedTimesheetDatabase(done);
@@ -644,10 +644,10 @@ describe('POST /api/employees/:employeeId/timesheets', function() {
         .expect(404);
   });
 });
-*/
+
 
 // ---- PROBLEMO ---- //
-/*
+
 describe('PUT /api/employees/:employeeId/timesheets/:timesheetId', function() {
   let updatedTimesheet;
 
@@ -772,9 +772,9 @@ describe('DELETE /api/employees/:employeeId/timesheets/:timesheetId', function()
         .expect(404);
   });
 });
-*/
 
 
+/*
 describe('GET /api/menus', function() {
   before(function(done) {
     seed.seedMenuDatabase(done);
@@ -798,8 +798,8 @@ describe('GET /api/menus', function() {
         .expect(200);
   });
 });
-/*
-describe('GET /api/menus/:id', function() {
+
+describe('GET /api/menus/:menuId', function() {
   before(function(done) {
     seed.seedMenuDatabase(done);
   });
@@ -879,7 +879,7 @@ describe('POST /api/menus', function() {
   });
 });
 
-describe('PUT /api/menus/:id', function() {
+describe('PUT /api/menus/:menuId', function() {
   let updatedMenu;
 
   beforeEach(function(done) {
@@ -934,7 +934,8 @@ describe('PUT /api/menus/:id', function() {
   });
 });
 
-describe('DELETE /api/menus/:id', function() {
+// ---- PROBLEMO ---- //
+describe('DELETE /api/menus/:menuId', function() {
   beforeEach(function(done) {
     seed.seedMenuDatabase(() => seed.seedMenuItemDatabase(done));
   });
@@ -980,6 +981,8 @@ describe('DELETE /api/menus/:id', function() {
   });
 });
 
+
+// -----//
 describe('GET /api/menus/:menuId/menu-items', function() {
   before(function(done) {
     seed.seedMenuItemDatabase(done);
@@ -1017,7 +1020,7 @@ describe('GET /api/menus/:menuId/menu-items', function() {
         .expect(404);
       });
 });
-
+//-----//
 describe('POST /api/menus/:menuId/menu-items', function() {
   let newMenuItem;
 

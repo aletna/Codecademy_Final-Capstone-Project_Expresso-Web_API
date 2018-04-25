@@ -33,7 +33,7 @@ employeesRouter.param('employeeId', (req, res, next, employeeId) => {
 
 //timesheetId param
 employeesRouter.param('timesheetId', (req, res, next, timesheetId) => {
-  const sql = 'SELECT * FROM Timesheet WHERE Timesheet.id = timesheetId';
+  const sql = 'SELECT * FROM Timesheet WHERE Timesheet.id = $timesheetId';
   const values = {timesheetId: timesheetId};
   db.get(sql, values, (error, timesheet) => {
     if (error) {
@@ -229,14 +229,14 @@ employeesRouter.put('/:employeeId/timesheets/:timesheetId', valTimesheet, (req, 
     $rate: rate,
     $date: date,
     $employeeId: req.params.employeeId,
-    $timesheetId: req.params.timesheetId
+    $timesheetId: req.params.timesheet
   };
 
   db.run(sql, values, (error) => {
     if (error) {
       next(error);
     } else {
-      db.get(`SELECT * FROM Timesheet WHERE id = ${req.params.timesheetId}`,
+      db.get(`SELECT * FROM Timesheet WHERE id = ${req.params.timesheet}`,
         (error, timesheet) => {
           res.status(200).json({timesheets: timesheet});
         });
@@ -244,6 +244,16 @@ employeesRouter.put('/:employeeId/timesheets/:timesheetId', valTimesheet, (req, 
   });
 });
 
-
+employeesRouter.delete('/:employeeId/timesheets/:timesheetId', (req, res, next) => {
+    const query = 'DELETE FROM Timesheet WHERE Timesheet.id = $id';
+    const values = {$id: req.params.timesheetId};
+    db.run(query, values, (err) => {
+        if (err) {
+            next(err);
+        } else {
+            res.sendStatus(204);
+        }
+    });
+});
 
 module.exports = employeesRouter;
